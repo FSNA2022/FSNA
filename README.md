@@ -2,7 +2,7 @@
 
 FSNA is built upon the codebase [FsDet v0.1](https://github.com/ucbdrive/few-shot-object-detection/tags), which released by an ICML 2020 paper [Frustratingly Simple Few-Shot Object Detection](https://arxiv.org/abs/2003.06957).
 
-![FSCE Figure](figure2.pdf)
+![FSCE Figure](figure.png)
 
 ## Installation
 
