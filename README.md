@@ -6,7 +6,7 @@ FSNA is built upon the codebase [FsDet v0.1](https://github.com/ucbdrive/few-sho
 
 ## Installation
 
-FsDet is built on [Detectron2](https://github.com/facebookresearch/detectron2). But you don't need to build detectron2 seperately as this codebase is self-contained. You can follow the instructions below to install the dependencies and build `FsDet`. FSCE functionalities are implemented as `class`and `.py` scripts in FsDet which therefore requires no extra build efforts. 
+FsDet is built on [Detectron2](https://github.com/facebookresearch/detectron2). But you don't need to build detectron2 seperately as this codebase is self-contained. You can follow the instructions below to install the dependencies and build `FsDet`. FSNA functionalities are implemented as `class`and `.py` scripts in FsDet which therefore requires no extra build efforts. 
 
 **Dependencies**
 
