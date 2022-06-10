@@ -1,0 +1,44 @@
+_BASE_: "../../Base-RCNN-FPN.yaml"
+
+MODEL:
+  MASK_ON: False
+#  WEIGHTS: "/home/1Tm2/zjx/FSCE_outputs/coco/Total_Att_Scaleboxes/novel/10shot/10shot_seed0_repeat0/model_final.pth"
+  WEIGHTS: "/home/1Tm2/zjx/FSCE_outputs/coco/plain/novel/10shot/10shot_seed0_repeat4/model_final.pth"
+#  WEIGHTS: "/home/1Tm2/zjx/FSCE_outputs/coco/Total_Att_Scaleboxes/novel/10shot/10shot_seed0_repeat0/model_final.pth"
+  RESNETS:
+    DEPTH: 101
+
+  BACKBONE:
+    FREEZE: False
+    FREEZE_AT: 5
+
+  PROPOSAL_GENERATOR:
+    FREEZE: False
+  RPN:
+    POST_NMS_TOPK_TRAIN: 2000
+
+  ROI_HEADS:
+    NUM_CLASSES: 80
+    OUTPUT_LAYER: "CosineSimOutputLayers"
+    FREEZE_FEAT: False
+    BATCH_SIZE_PER_IMAGE: 256 # do increased positive fraction help? Yes, it does.
+
+DATASETS:
+  TRAIN: ('coco_trainval_all_10shot',)
+  TEST: ('coco_test_all',)
+
+SOLVER:
+  IMS_PER_BATCH: 8  #原来是8*30000
+  BASE_LR: 0.0005
+  GAMMA: 0.3
+  STEPS: (10000,)
+  MAX_ITER: 30000 #原来是30000
+  CHECKPOINT_PERIOD: 10000 #原来是10000
+  WARMUP_ITERS: 200
+
+TEST:
+  AUG:
+    ENABLED: True
+  EVAL_PERIOD: 10000
+
+OUTPUT_DIR: "checkpoints/coco/R101/10"
